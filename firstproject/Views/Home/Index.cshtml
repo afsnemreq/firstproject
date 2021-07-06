@@ -1,0 +1,46 @@
+﻿@model List<Transaction>
+@{ ViewBag.Title = "Index"; }
+<h2>Reteriving Data From Database</h2>
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        table, td, th {
+            border: 1px solid green;
+        }
+
+        .font-fam {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        th {
+            background-color: gray;
+            color: white;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <table style=" margin-top: 30px; border: 1px solid #808080;" class="font-fam">
+        <tr>
+            <th class="px-5 text-center">ID</th>
+            <th class="px-5 text-center">Title</th>
+            <th class="px-5 text-center">Value</th>
+
+        </tr>
+        @foreach (var item in Model)
+        {
+          <tr>
+              <td class="px-4 text-center">@item.Id</td>
+              <td class="px-4 text-center">@item.Title</td>
+              <td class="px-4 text-center">@item.Value</td>
+
+          </tr>}
+    </table>
+</body>
+</html>

@@ -1,0 +1,61 @@
+﻿
+
+
+<form id="transactionForm" method="post">
+    @*<label for="ggider">Choose:</label>
+        <select name="ggider" id="ggider">
+            <option value="gelir">gelir</option>
+            <option value="gider">gider</option>
+
+        </select>*@
+    <br><br>
+
+
+    <label for="">Title:</label><br>
+    <input type="text" id="title" name="title"><br>
+    <label for="">value:</label><br>
+    <input type="text" id="value" name="value"><br><br>
+
+
+
+    <input id="sendButton" type="button" value="Submit">
+
+
+
+</form>
+
+@section Scripts{
+    <script>
+		$('#sendButton').on('click', function () {
+
+			////var form = new FormData();
+			////form.append("Title", $('#title').val());
+			////form.append("Value", $('#value').val());
+
+			var data = {
+				"Value": $("#value").val(),
+				"Title": $("#title").val(),
+
+
+			}
+			console.log(data);
+			$.ajax({
+				url: "/Home/InsertUpdate",
+				data: JSON.stringify(data),
+				type: "POST",
+				processData: false,
+				contentType: 'application/json; charset=utf-8',
+			}).done(function (result) {
+				if (result == "OK") {
+
+					alert("Ekleme yapıldı");
+				}
+
+			});
+
+
+		});
+
+
+    </script>
+}
